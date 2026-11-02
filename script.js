@@ -74,3 +74,20 @@ document.addEventListener("keydown", (event) => {
     menuButton.focus();
   }
 });
+
+// Subtle teal sparkles follow pointer movement on devices with a fine pointer.
+if (window.matchMedia("(pointer: fine)").matches && !reduceMotion.matches) {
+  let lastSparkle = 0;
+  document.addEventListener("pointermove", (event) => {
+    const now = performance.now();
+    if (now - lastSparkle < 85) return;
+    lastSparkle = now;
+    const sparkle = document.createElement("span");
+    sparkle.className = "pointer-sparkle";
+    sparkle.textContent = Math.random() > 0.5 ? "✦" : "·";
+    sparkle.style.left = `${event.clientX}px`;
+    sparkle.style.top = `${event.clientY}px`;
+    document.body.append(sparkle);
+    window.setTimeout(() => sparkle.remove(), 700);
+  }, { passive: true });
+}

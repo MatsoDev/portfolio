@@ -90,8 +90,9 @@ h1, h2, h3, p { margin-top: 0; }
 .skill-group { min-width: 0; padding: 21px; border: 1px solid var(--border-subtle); border-radius: 10px; background: var(--bg-surface); }
 .skill-group h3 { margin: 0 0 17px; color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
 .skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
-.skill { min-height: 35px; display: inline-flex; align-items: center; gap: 7px; padding: 6px 9px; border: 1px solid var(--border-subtle); border-radius: 6px; background: #101419; color: var(--text-primary); font-size: 11px; line-height: 1.2; }
-.skill img { width: 17px; height: 17px; object-fit: contain; }
+.skill { min-height: 42px; display: inline-flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid var(--border-subtle); border-radius: 8px; background: #101419; color: var(--text-primary); font-size: 12px; line-height: 1.2; transition: transform .2s ease, border-color .2s ease, background-color .2s ease, box-shadow .2s ease; }
+.skill img { width: 22px; height: 22px; object-fit: contain; }
+.skill:hover { transform: translateY(-3px); border-color: rgb(43 217 163 / 60%); background: #151d22; box-shadow: 0 7px 20px rgb(0 0 0 / 24%), 0 0 12px rgb(43 217 163 / 9%); }
 .skill-text { gap: 6px; }
 .skill-monogram { min-width: 17px; color: var(--accent-primary); font-family: var(--font-mono); font-size: 8px; font-weight: 700; text-align: center; }
 .project-card { min-width: 0; padding: 25px; border: 1px solid var(--border-subtle); border-radius: 10px; background: var(--bg-surface); transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background-color .22s ease; }
@@ -122,9 +123,10 @@ h1, h2, h3, p { margin-top: 0; }
 .contact-copy { max-width: 590px; margin-bottom: 24px; color: var(--text-secondary); font-size: 16px; }
 .contact-cta { margin-bottom: 28px; }
 .social-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 9px; }
-.social-link { min-height: 40px; display: inline-flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid var(--border-subtle); border-radius: 6px; color: var(--text-secondary); font-size: 11px; transition: border-color .2s ease, color .2s ease, background-color .2s ease; }
+.social-link { min-height: 46px; display: inline-flex; align-items: center; gap: 10px; padding: 10px 15px; border: 1px solid var(--border-subtle); border-radius: 8px; color: var(--text-secondary); font-size: 12px; transition: transform .2s ease, border-color .2s ease, color .2s ease, background-color .2s ease, box-shadow .2s ease; }
+.social-link:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgb(0 0 0 / 22%), 0 0 14px rgb(43 217 163 / 10%); }
 .social-link:hover { border-color: var(--accent-primary); color: var(--accent-primary); background: rgb(43 217 163 / 5%); }
-.social-link svg { width: 15px; height: 15px; fill: currentColor; }
+.social-link svg { width: 19px; height: 19px; fill: currentColor; }
 .social-link small { margin-left: 4px; color: var(--accent-primary); font-family: var(--font-mono); font-size: 8px; }
 .social-mark { width: 16px; height: 16px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 3px; font-family: var(--font-heading); font-size: 10px; font-weight: 700; }
 .social-x { border: 0; font-size: 16px; }
@@ -164,3 +166,6 @@ h1, h2, h3, p { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+.pointer-sparkle { position: fixed; z-index: 9999; pointer-events: none; color: var(--accent-primary); font-size: 13px; line-height: 1; text-shadow: 0 0 10px rgb(43 217 163 / 80%); animation: sparkle-drift .7s ease-out forwards; }
+@keyframes sparkle-drift { 0% { opacity: 0; transform: translate(-50%, -40%) scale(.4) rotate(0); } 20% { opacity: .9; } 100% { opacity: 0; transform: translate(-50%, -28px) scale(1.2) rotate(65deg); } }
