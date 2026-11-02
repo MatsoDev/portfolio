@@ -118,7 +118,7 @@ h1, h2, h3, p { margin-top: 0; }
 .has-js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .55s ease, transform .55s ease; }
 .has-js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .contact-section { border-top: 1px solid var(--border-subtle); background: var(--bg-surface); }
-.contact-inner { padding-block: 112px; }
+.contact-inner { padding-block: clamp(64px, 8vw, 88px); }
 .contact-inner .section-heading { margin-bottom: 20px; }
 .contact-copy { max-width: 590px; margin-bottom: 24px; color: var(--text-secondary); font-size: 16px; }
 .contact-cta { margin-bottom: 28px; }
@@ -150,7 +150,7 @@ h1, h2, h3, p { margin-top: 0; }
   .section { padding-block: 82px; scroll-margin-top: 68px; }
   .section-heading { margin-bottom: 30px; }
   .about-layout { grid-template-columns: 1fr; gap: 24px; }
-  .contact-inner { padding-block: 82px; }
+  .contact-inner { padding-block: 64px; }
   .skill-grid, .project-grid { gap: 12px; }
   .project-card { padding: 20px; }
   .project-card p { min-height: 0; }
