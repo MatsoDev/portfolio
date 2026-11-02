@@ -36,8 +36,29 @@ if (roleTarget && !reduceMotion.matches) {
   window.setTimeout(typeNext, 1750);
 }
 
+
+const mobileMotion = window.matchMedia("(max-width: 767px)").matches;
+const duration = mobileMotion ? 550 : 800;
+const cardGroups = document.querySelectorAll(".project-grid");
+cardGroups.forEach((group) => {
+  group.querySelectorAll(".project-card").forEach((card, index) => {
+    card.classList.add("reveal");
+    card.style.setProperty("--reveal-delay", `${200 + Math.min(index, 4) * (mobileMotion ? 48 : 80)}ms`);
+  });
+});
+document.querySelectorAll(".section-heading").forEach((heading) => heading.classList.add("reveal"));
+document.querySelectorAll(".skill-group").forEach((group, index) => {
+  group.classList.add("reveal");
+  group.style.setProperty("--reveal-delay", `${200 + Math.min(index, 4) * (mobileMotion ? 72 : 120)}ms`);
+});
+document.querySelectorAll(".project-card").forEach((card) => card.classList.add("reveal"));
+document.querySelectorAll(".background-card").forEach((card) => card.classList.add("reveal"));
+
+
 const revealItems = document.querySelectorAll(".reveal");
-if ("IntersectionObserver" in window && !reduceMotion.matches) {
+if (reduceMotion.matches || !("IntersectionObserver" in window)) {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+} else {
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -45,12 +66,14 @@ if ("IntersectionObserver" in window && !reduceMotion.matches) {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
-  revealItems.forEach((item) => revealObserver.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add("is-visible"));
+  }, { rootMargin: "0px 0px -10% 0px", threshold: 0.15 });
+  document.querySelectorAll(".reveal").forEach((item, index) => {
+    if (!item.style.getPropertyValue("--reveal-delay")) {
+      item.style.setProperty("--reveal-delay", `${index === 0 ? 0 : Math.min(index, 4) * 80}ms`);
+    }
+    revealObserver.observe(item);
+  });
 }
-
 menuButton?.addEventListener("click", () => {
   const isOpen = menuButton.getAttribute("aria-expanded") === "true";
   menuButton.setAttribute("aria-expanded", String(!isOpen));
