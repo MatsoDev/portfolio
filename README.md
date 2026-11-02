@@ -21,4 +21,5 @@ The site is published from the `main` branch root with GitHub Pages.
 - `index.html` — page content and metadata
 - `styles.css` — design tokens, layout, and responsive styles
 - `script.js` — menu, typing effect, and scroll reveals
-- `assets/` — locally stored icons, resume, and favicon
+- `assets/` — locally stored skill icons and favicon
+- `resume.pdf` — downloadable one-page résumé
