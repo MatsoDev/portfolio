@@ -2,6 +2,7 @@ const roleTarget = document.querySelector("#typed-role");
 const menuButton = document.querySelector(".menu-toggle");
 const menu = document.querySelector("#primary-menu");
 const yearTarget = document.querySelector("#current-year");
+document.documentElement.classList.add("has-js");
 
 yearTarget.textContent = new Date().getFullYear();
 
@@ -33,6 +34,21 @@ if (roleTarget && !reduceMotion.matches) {
   };
 
   window.setTimeout(typeNext, 1750);
+}
+
+const revealItems = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window && !reduceMotion.matches) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
 menuButton?.addEventListener("click", () => {
