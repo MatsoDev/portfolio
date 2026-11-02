@@ -191,3 +191,11 @@ body { font-size: 16px; }
   .nav-menu { font-size: 15px; }
   .hero-copy { font-size: 17px; }
 }
+
+/* Ambient page depth: faint grain plus slow, low-contrast color fields. */
+body { position: relative; isolation: isolate; }
+body::before { content: ""; position: fixed; z-index: -1; inset: 0; pointer-events: none; opacity: .16; background-image: radial-gradient(circle at 1px 1px, rgb(154 164 178 / 22%) .7px, transparent .8px); background-size: 6px 6px; mask-image: linear-gradient(to bottom, transparent 4%, black 26%, black 78%, transparent 98%); }
+.site-shell { position: relative; isolation: isolate; }
+.site-shell::before { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: radial-gradient(ellipse 520px 360px at 82% 16%, rgb(43 217 163 / 6%), transparent 72%), radial-gradient(ellipse 620px 420px at 14% 57%, rgb(58 95 190 / 5%), transparent 74%), radial-gradient(ellipse 500px 360px at 86% 88%, rgb(43 217 163 / 4%), transparent 72%); background-size: 100% 100%; animation: ambient-drift 24s ease-in-out infinite alternate; }
+@keyframes ambient-drift { from { opacity: .65; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .site-shell::before { animation: none; } }
