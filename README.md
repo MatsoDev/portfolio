@@ -2,6 +2,10 @@
 
 A responsive personal portfolio built with semantic HTML, CSS, and vanilla JavaScript.
 
+Live site: <https://matsodev.github.io/portfolio/>
+
+Tech stack: semantic HTML5, CSS3, vanilla JavaScript, and Google Fonts. No build step is required.
+
 ## Run locally
 
 From this directory, start a static server:
