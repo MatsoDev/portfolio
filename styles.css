@@ -148,7 +148,7 @@ h1, h2, h3, p { margin-top: 0; }
 .background-card { position: relative; min-width: 0; padding: 28px; border: 1px solid var(--border-subtle); border-radius: 18px; background: var(--bg-surface); }
 .background-card:hover { transform: translateY(-4px) scale(1.035); z-index: 2; border-color: var(--border-accent); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18), 0 0 24px rgb(244 114 60 / 8%); }
 .quick-facts div:hover { transform: translateY(-3px) scale(1.035); z-index: 2; border-color: var(--border-accent); background: var(--bg-surface-hover); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18), 0 0 22px rgb(244 114 60 / 8%); }
-.skill-group:hover { transform: scale(1.035); z-index: 2; border-color: var(--border-accent); background: var(--bg-surface-hover); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18), 0 0 24px rgb(244 114 60 / 8%); }
+.skill-group:hover { transform: perspective(900px) rotateX(3deg) rotateY(-5deg) scale(1.035); z-index: 2; border-color: var(--border-accent); background: var(--bg-surface-hover); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18), 0 0 24px rgb(244 114 60 / 8%); }
 .project-card, .skill-group, .background-card, .quick-facts div { transition: transform .2s cubic-bezier(.22, 1, .36, 1), box-shadow .25s ease, border-color .35s ease, background-color .35s ease; }
 .card-kicker { display: flex; justify-content: space-between; margin: 0 0 24px; }
 .card-kicker span { color: var(--text-secondary); }
@@ -230,6 +230,7 @@ h1, h2, h3, p { margin-top: 0; }
 .has-js .project-card.reveal { transform: translateY(24px) scale(.97); }
 .has-js .project-card.reveal.is-visible { transform: translateY(0) scale(1); }
 .has-js .project-card.reveal.is-visible:hover { transform: scale(1.035); z-index: 2; }
+.has-js .skill-group.reveal.is-visible:hover { transform: perspective(900px) rotateX(3deg) rotateY(-5deg) scale(1.035); z-index: 2; }
 @media (max-width: 767px) { .has-js .reveal { transition-duration: .35s; transition-delay: calc(var(--reveal-delay, 0ms) * .6); } }
 @media (prefers-reduced-motion: reduce) { .has-js .reveal, .has-js .project-card.reveal { opacity: 0; transform: none; transition: opacity .2s ease; transition-delay: 0ms; } .has-js .reveal.is-visible, .has-js .project-card.reveal.is-visible { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) {
