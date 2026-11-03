@@ -90,7 +90,7 @@ h1, h2, h3, p { margin-top: 0; }
 .scroll-cue span { width: 19px; height: 29px; display: block; border: 1px solid var(--border-subtle); border-radius: 10px; position: relative; }
 .scroll-cue span::after { content: ""; position: absolute; top: 6px; left: 8px; width: 2px; height: 5px; border-radius: 3px; background: var(--accent-primary); }
 .stats-band { border-block: 1px solid var(--border-subtle); background: linear-gradient(90deg, rgb(21 37 68 / 80%), rgb(14 27 51 / 30%)); }
-.stats-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding-block: 27px; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding-block: 27px; }
 .stat-item { min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 2px clamp(14px, 3vw, 34px); border-right: 1px solid var(--border-subtle); }
 .stat-item:first-child { padding-left: 0; }
 .stat-item:last-child { border-right: 0; }
@@ -320,4 +320,29 @@ h1, h2, h3, p { margin-top: 0; }
   .has-js .stat-item.card-enter--from-left, .has-js .stat-item.card-enter--from-right, .has-js .stat-item.card-enter--from-below { transform: none; }
   .has-js .project-card.card-enter.revealed, .has-js .skill-group.card-enter.revealed, .has-js .background-card.card-enter.revealed,
   .has-js .quick-facts > div.card-enter.revealed, .has-js .stat-item.card-enter.revealed { opacity: 1; transform: none; }
+}
+
+
+/* Door-like 3D hover for every card */
+.has-js .project-card.card-enter:nth-child(odd),
+.has-js .skill-group.card-enter:nth-child(odd),
+.has-js .background-card.card-enter:nth-child(odd),
+.has-js .quick-facts > div.card-enter:nth-child(odd),
+.has-js .stat-item.card-enter:nth-child(odd) { transform-origin: left center; }
+.has-js .project-card.card-enter:nth-child(even),
+.has-js .skill-group.card-enter:nth-child(even),
+.has-js .background-card.card-enter:nth-child(even),
+.has-js .quick-facts > div.card-enter:nth-child(even),
+.has-js .stat-item.card-enter:nth-child(even) { transform-origin: right center; }
+@media (hover: hover) and (pointer: fine) {
+  .has-js .project-card.card-enter.revealed:nth-child(odd):hover,
+  .has-js .skill-group.card-enter.revealed:nth-child(odd):hover,
+  .has-js .background-card.card-enter.revealed:nth-child(odd):hover,
+  .has-js .quick-facts > div.card-enter.revealed:nth-child(odd):hover { transform: perspective(900px) rotateX(4deg) rotateY(-8deg) scale(1.035); z-index: 2; }
+  .has-js .project-card.card-enter.revealed:nth-child(even):hover,
+  .has-js .skill-group.card-enter.revealed:nth-child(even):hover,
+  .has-js .background-card.card-enter.revealed:nth-child(even):hover,
+  .has-js .quick-facts > div.card-enter.revealed:nth-child(even):hover { transform: perspective(900px) rotateX(4deg) rotateY(8deg) scale(1.035); z-index: 2; }
+  .has-js .stat-item.card-enter.revealed:nth-child(odd):hover { transform: perspective(900px) rotateX(3deg) rotateY(-6deg) scale(1.02); z-index: 2; }
+  .has-js .stat-item.card-enter.revealed:nth-child(even):hover { transform: perspective(900px) rotateX(3deg) rotateY(6deg) scale(1.02); z-index: 2; }
 }
