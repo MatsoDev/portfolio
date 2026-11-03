@@ -38,21 +38,15 @@ if (roleTarget && !reduceMotion.matches) {
 
 
 const mobileMotion = window.matchMedia("(max-width: 767px)").matches;
-const cardGroups = document.querySelectorAll(".project-grid");
 const cardEntranceVariants = ["from-left", "from-right", "from-below"];
-cardGroups.forEach((group) => {
-  group.querySelectorAll(".project-card").forEach((card, index) => {
+const assignCardEntrances = (selector) => {
+  document.querySelectorAll(selector).forEach((card, index) => {
     card.classList.add("reveal", "card-enter", `card-enter--${cardEntranceVariants[index % cardEntranceVariants.length]}`);
     card.style.setProperty("--reveal-delay", `${Math.min(index, 4) * (mobileMotion ? 24 : 30)}ms`);
   });
-});
+};
+[".stat-item", ".quick-facts > div", ".skill-group", ".project-card", ".background-card"].forEach(assignCardEntrances);
 document.querySelectorAll(".section-heading").forEach((heading) => heading.classList.add("reveal"));
-document.querySelectorAll(".skill-group").forEach((group, index) => {
-  group.classList.add("reveal");
-  group.style.setProperty("--reveal-delay", `${Math.min(index, 4) * (mobileMotion ? 24 : 30)}ms`);
-});
-document.querySelectorAll(".project-card").forEach((card) => card.classList.add("reveal"));
-document.querySelectorAll(".background-card").forEach((card) => card.classList.add("reveal"));
 
 
 const revealItems = document.querySelectorAll(".reveal");
