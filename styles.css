@@ -35,9 +35,12 @@ img, svg { display: block; max-width: 100%; }
 .skip-link:focus { transform: translateY(0); }
 .site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--border-subtle); background: rgb(21 37 68 / 90%); backdrop-filter: blur(16px); }
 .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -.02em; }
-.brand-logo { display: block; flex: 0 0 36px; width: 36px; height: 36px; border: 1px solid var(--border-subtle); border-radius: 8px; object-fit: cover; background: var(--bg-primary); }
-.brand-name { font-size: 15px; }
+.brand { display: inline-flex; align-items: center; }
+.brand-logo { display: block; flex: 0 0 36px; width: 36px; height: 36px; border: 1px solid var(--border-subtle); border-radius: 8px; object-fit: cover; background: var(--bg-primary); transition: transform .22s ease; transform-origin: center; }
+.brand:hover .brand-logo, .brand:focus-visible .brand-logo { transform: scale(1.14); }
+@media (prefers-reduced-motion: reduce) {
+  .brand-logo { transition: none; }
+}
 .nav-menu { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 30px); color: var(--text-secondary); font-size: 14px; }
 .nav-menu a { transition: color .2s ease, border-color .2s ease, background-color .2s ease; }
 .nav-menu a:hover, .nav-menu a:focus-visible { color: var(--accent-primary); }
