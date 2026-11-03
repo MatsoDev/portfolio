@@ -39,9 +39,10 @@ if (roleTarget && !reduceMotion.matches) {
 
 const mobileMotion = window.matchMedia("(max-width: 767px)").matches;
 const cardGroups = document.querySelectorAll(".project-grid");
+const cardEntranceVariants = ["from-left", "from-right", "from-below"];
 cardGroups.forEach((group) => {
   group.querySelectorAll(".project-card").forEach((card, index) => {
-    card.classList.add("reveal");
+    card.classList.add("reveal", "card-enter", `card-enter--${cardEntranceVariants[index % cardEntranceVariants.length]}`);
     card.style.setProperty("--reveal-delay", `${Math.min(index, 4) * (mobileMotion ? 24 : 30)}ms`);
   });
 });
@@ -55,8 +56,12 @@ document.querySelectorAll(".background-card").forEach((card) => card.classList.a
 
 
 const revealItems = document.querySelectorAll(".reveal");
+const revealImmediately = (item) => {
+  item.classList.add("is-visible");
+  if (item.classList.contains("card-enter")) item.classList.add("revealed");
+};
 if (reduceMotion.matches || !("IntersectionObserver" in window)) {
-  revealItems.forEach((item) => item.classList.add("is-visible"));
+  revealItems.forEach(revealImmediately);
 } else {
   const observerOptions = {
     rootMargin: "0px 0px -5% 0px",
@@ -65,7 +70,7 @@ if (reduceMotion.matches || !("IntersectionObserver" in window)) {
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
+        revealImmediately(entry.target);
         observer.unobserve(entry.target);
       }
     });

@@ -256,3 +256,34 @@ h1, h2, h3, p { margin-top: 0; }
 .has-js .hero-copy-block > .hero-actions { animation-delay: 600ms; }
 @media (max-width: 767px) { .has-js .hero-copy-block > .eyebrow, .has-js .hero-copy-block > h1, .has-js .hero-copy-block > .hero-role, .has-js .hero-copy-block > .hero-copy, .has-js .hero-copy-block > .hero-actions { animation-duration: .55s; } }
 @media (prefers-reduced-motion: reduce) { .has-js .hero-copy-block > .eyebrow, .has-js .hero-copy-block > h1, .has-js .hero-copy-block > .hero-role, .has-js .hero-copy-block > .hero-copy, .has-js .hero-copy-block > .hero-actions { opacity: 1; animation: none; } }
+
+
+/* Project-card directional entrances */
+@media (min-width: 768px) {
+  .project-grid { margin-inline: 24px; }
+}
+.has-js .project-card.card-enter {
+  opacity: 0;
+  transition: opacity .45s cubic-bezier(.16, 1, .3, 1) var(--reveal-delay, 0ms), transform .45s cubic-bezier(.16, 1, .3, 1) var(--reveal-delay, 0ms), box-shadow .25s ease, border-color .35s ease, background-color .35s ease;
+}
+.has-js .project-card.card-enter--from-left { transform: translate(-40px, 30px) rotate(-4deg) scale(.96); }
+.has-js .project-card.card-enter--from-right { transform: translate(40px, 30px) rotate(4deg) scale(.96); }
+.has-js .project-card.card-enter--from-below { transform: translate(0, 50px) scale(.92); }
+.has-js .project-card.card-enter.revealed { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+.has-js .project-card.card-enter.revealed:hover { transform: scale(1.035); z-index: 2; }
+@media (max-width: 767px) {
+  .has-js .project-card.card-enter {
+    transition: opacity .35s cubic-bezier(.16, 1, .3, 1) calc(var(--reveal-delay, 0ms) * .6), transform .35s cubic-bezier(.16, 1, .3, 1) calc(var(--reveal-delay, 0ms) * .6), box-shadow .25s ease, border-color .35s ease, background-color .35s ease;
+  }
+  .has-js .project-card.card-enter--from-left,
+  .has-js .project-card.card-enter--from-right,
+  .has-js .project-card.card-enter--from-below { transform: translate(0, 30px) scale(.92); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .has-js .project-card.card-enter { transform: none; transition: opacity .2s ease var(--reveal-delay, 0ms), transform .05s ease, box-shadow .05s ease, border-color .05s ease, background-color .05s ease; }
+  .has-js .project-card.card-enter--from-left,
+  .has-js .project-card.card-enter--from-right,
+  .has-js .project-card.card-enter--from-below,
+  .has-js .project-card.card-enter.revealed { transform: none; }
+  .has-js .project-card.card-enter.revealed { opacity: 1; }
+}
