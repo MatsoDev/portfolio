@@ -98,7 +98,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// Subtle teal sparkles follow pointer movement on devices with a fine pointer.
+// Subtle indigo sparkles follow pointer movement on devices with a fine pointer.
 if (window.matchMedia("(pointer: fine)").matches && !reduceMotion.matches) {
   let lastSparkle = 0;
   document.addEventListener("pointermove", (event) => {
