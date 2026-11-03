@@ -38,18 +38,17 @@ if (roleTarget && !reduceMotion.matches) {
 
 
 const mobileMotion = window.matchMedia("(max-width: 767px)").matches;
-const duration = mobileMotion ? 550 : 800;
 const cardGroups = document.querySelectorAll(".project-grid");
 cardGroups.forEach((group) => {
   group.querySelectorAll(".project-card").forEach((card, index) => {
     card.classList.add("reveal");
-    card.style.setProperty("--reveal-delay", `${200 + Math.min(index, 4) * (mobileMotion ? 48 : 80)}ms`);
+    card.style.setProperty("--reveal-delay", `${Math.min(index, 4) * (mobileMotion ? 24 : 30)}ms`);
   });
 });
 document.querySelectorAll(".section-heading").forEach((heading) => heading.classList.add("reveal"));
 document.querySelectorAll(".skill-group").forEach((group, index) => {
   group.classList.add("reveal");
-  group.style.setProperty("--reveal-delay", `${200 + Math.min(index, 4) * (mobileMotion ? 72 : 120)}ms`);
+  group.style.setProperty("--reveal-delay", `${Math.min(index, 4) * (mobileMotion ? 24 : 30)}ms`);
 });
 document.querySelectorAll(".project-card").forEach((card) => card.classList.add("reveal"));
 document.querySelectorAll(".background-card").forEach((card) => card.classList.add("reveal"));
@@ -59,6 +58,10 @@ const revealItems = document.querySelectorAll(".reveal");
 if (reduceMotion.matches || !("IntersectionObserver" in window)) {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 } else {
+  const observerOptions = {
+    rootMargin: "0px 0px -5% 0px",
+    threshold: 0.05
+  };
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -66,10 +69,10 @@ if (reduceMotion.matches || !("IntersectionObserver" in window)) {
         observer.unobserve(entry.target);
       }
     });
-  }, { rootMargin: "0px 0px -10% 0px", threshold: 0.15 });
+  }, observerOptions);
   document.querySelectorAll(".reveal").forEach((item, index) => {
     if (!item.style.getPropertyValue("--reveal-delay")) {
-      item.style.setProperty("--reveal-delay", `${index === 0 ? 0 : Math.min(index, 4) * 80}ms`);
+      item.style.setProperty("--reveal-delay", `${index === 0 ? 0 : Math.min(index, 4) * 30}ms`);
     }
     revealObserver.observe(item);
   });
