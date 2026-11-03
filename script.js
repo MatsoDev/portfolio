@@ -41,7 +41,7 @@ const mobileMotion = window.matchMedia("(max-width: 767px)").matches;
 const cardEntranceVariants = ["from-left", "from-right", "from-below"];
 const assignCardEntrances = (selector) => {
   document.querySelectorAll(selector).forEach((card, index) => {
-    card.classList.add("reveal", "card-enter", `card-enter--${cardEntranceVariants[index % cardEntranceVariants.length]}`);
+    card.classList.add("reveal", "card-enter", "card-hover", `card-enter--${cardEntranceVariants[index % cardEntranceVariants.length]}`);
     card.style.setProperty("--reveal-delay", `${Math.min(index, 4) * (mobileMotion ? 24 : 30)}ms`);
   });
 };

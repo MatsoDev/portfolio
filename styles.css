@@ -90,8 +90,8 @@ h1, h2, h3, p { margin-top: 0; }
 .scroll-cue span { width: 19px; height: 29px; display: block; border: 1px solid var(--border-subtle); border-radius: 10px; position: relative; }
 .scroll-cue span::after { content: ""; position: absolute; top: 6px; left: 8px; width: 2px; height: 5px; border-radius: 3px; background: var(--accent-primary); }
 .stats-band { border-block: 1px solid var(--border-subtle); background: linear-gradient(90deg, rgb(21 37 68 / 80%), rgb(14 27 51 / 30%)); }
-.stats-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding-block: 27px; }
-.stat-item { min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 2px clamp(14px, 3vw, 34px); border-right: 1px solid var(--border-subtle); }
+.stats-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-block: 27px; }
+.stat-item { position: relative; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 12px; border: 1px solid transparent; border-right-color: var(--border-subtle); border-radius: 12px; }
 .stat-item:first-child { padding-left: 0; }
 .stat-item:last-child { border-right: 0; }
 .stat-number { color: var(--accent-primary); font-family: var(--font-heading); font-size: clamp(26px, 3vw, 36px); font-weight: 700; line-height: 1.1; letter-spacing: -.05em; }
@@ -114,12 +114,12 @@ h1, h2, h3, p { margin-top: 0; }
 .about-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); align-items: start; gap: clamp(32px, 7vw, 86px); }
 .about-copy { max-width: 650px; color: var(--text-secondary); font-size: 16px; line-height: 1.85; }
 .about-copy p:last-child { margin-bottom: 0; }
-.quick-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.quick-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 0; }
 .quick-facts div { position: relative; min-width: 0; padding: 17px; border: 1px solid var(--border-subtle); border-radius: 14px; background: var(--bg-surface); }
 .quick-facts dt, .card-kicker { margin-bottom: 7px; color: var(--accent-primary); font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; }
 .quick-facts dd { margin: 0; color: var(--text-primary); font-size: 13px; font-weight: 500; line-height: 1.5; }
-.skill-grid, .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.skill-grid { gap: 30px; }
+.skill-grid, .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.skill-grid { gap: 36px; }
 .skill-group { position: relative; min-width: 0; padding: 25px; border: 1px solid var(--border-subtle); border-radius: 18px; background: var(--bg-surface); }
 .skill-group h3 { margin: 0 0 19px; color: var(--text-primary); font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .skill-list { display: flex; flex-wrap: wrap; gap: 9px; }
@@ -145,7 +145,7 @@ h1, h2, h3, p { margin-top: 0; }
 .project-links a { color: var(--accent-primary); font-family: var(--font-mono); font-size: 11px; letter-spacing: .03em; }
 .project-links a:hover { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 4px; }
 .placeholder-note { margin: 18px 0 0; color: var(--text-secondary); font-size: 12px; }
-.background-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.background-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .background-card { position: relative; min-width: 0; padding: 28px; border: 1px solid var(--border-subtle); border-radius: 18px; background: var(--bg-surface); }
 .background-card:hover { transform: translateY(-4px) scale(1.035); z-index: 2; border-color: var(--border-accent); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18), 0 0 24px rgb(244 114 60 / 8%); }
 .quick-facts div:hover { transform: translateY(-3px) scale(1.035); z-index: 2; border-color: var(--border-accent); background: var(--bg-surface-hover); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18), 0 0 22px rgb(244 114 60 / 8%); }
@@ -198,7 +198,7 @@ h1, h2, h3, p { margin-top: 0; }
   .hero { min-height: auto; padding-top: 82px; padding-bottom: 100px; }
   .hero-content { grid-template-columns: minmax(0, 1fr); gap: 44px; }
   .hero-visual { width: min(72vw, 340px); justify-self: center; }
-  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; padding-block: 24px; }
+  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding-block: 24px; }
   .stat-item:nth-child(2) { border-right: 0; }
   .stat-item:nth-child(3) { padding-left: 0; }
   .hero::after { top: 7%; right: -80px; width: 300px; }
@@ -210,10 +210,10 @@ h1, h2, h3, p { margin-top: 0; }
   .about-layout { grid-template-columns: 1fr; gap: 26px; }
   .contact-inner { padding-block: 0; }
   .skill-grid { gap: 24px; }
-  .project-grid { gap: 14px; }
+  .project-grid { gap: 24px; }
   .project-card { padding: 23px; }
   .project-card p { min-height: 0; }
-  .background-grid { gap: 14px; }
+  .background-grid { gap: 24px; }
   .background-card { padding: 23px; }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 8px; }
 }
@@ -233,8 +233,6 @@ h1, h2, h3, p { margin-top: 0; }
 /* Preserve the established reveal cadence and responsive behavior. */
 .has-js .project-card.reveal { transform: translateY(24px) scale(.97); }
 .has-js .project-card.reveal.is-visible { transform: translateY(0) scale(1); }
-.has-js .project-card.reveal.is-visible:hover { transform: scale(1.035); z-index: 2; }
-.has-js .skill-group.reveal.is-visible:hover { transform: perspective(900px) rotateX(3deg) rotateY(-5deg) scale(1.035); z-index: 2; }
 @media (max-width: 767px) {
   .has-js .reveal { transition-duration: .35s; transition-delay: calc(var(--reveal-delay, 0ms) * .6); }
   .has-js .skill-group.reveal { transition: opacity .35s cubic-bezier(.16, 1, .3, 1) calc(var(--reveal-delay, 0ms) * .6), transform .12s cubic-bezier(.22, 1, .36, 1) 0ms, box-shadow .2s ease, border-color .35s ease, background-color .35s ease; }
@@ -263,6 +261,7 @@ h1, h2, h3, p { margin-top: 0; }
   .project-grid, .skill-grid, .background-grid, .quick-facts { margin-inline: 24px; }
   .stats-grid { padding-inline: 24px; }
 }
+.has-js .card-hover { transition: transform .18s cubic-bezier(.22, 1, .36, 1), box-shadow .2s ease, border-color .25s ease, background-color .25s ease; }
 .has-js .project-card.card-enter,
 .has-js .skill-group.card-enter,
 .has-js .background-card.card-enter,
@@ -291,11 +290,6 @@ h1, h2, h3, p { margin-top: 0; }
 .has-js .background-card.card-enter.revealed,
 .has-js .quick-facts > div.card-enter.revealed,
 .has-js .stat-item.card-enter.revealed { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
-.has-js .project-card.card-enter.revealed:hover { transform: perspective(900px) rotateX(3deg) rotateY(-5deg) scale(1.035); z-index: 2; transition: transform .2s cubic-bezier(.22, 1, .36, 1), box-shadow .25s ease, border-color .35s ease, background-color .35s ease; }
-.has-js .skill-group.card-enter.revealed:hover { transform: perspective(900px) rotateX(3deg) rotateY(-5deg) scale(1.035); z-index: 2; transition: transform .12s cubic-bezier(.22, 1, .36, 1), box-shadow .2s ease, border-color .35s ease, background-color .35s ease; }
-.has-js .background-card.card-enter.revealed:hover { transform: perspective(900px) rotateX(3deg) rotateY(-5deg) translateY(-4px) scale(1.035); z-index: 2; transition: transform .2s cubic-bezier(.22, 1, .36, 1), box-shadow .25s ease, border-color .35s ease, background-color .35s ease; }
-.has-js .quick-facts > div.card-enter.revealed:hover { transform: perspective(900px) rotateX(3deg) rotateY(-5deg) translateY(-3px) scale(1.035); z-index: 2; transition: transform .2s cubic-bezier(.22, 1, .36, 1), box-shadow .25s ease, border-color .35s ease, background-color .35s ease; }
-.has-js .stat-item.card-enter.revealed:hover { transform: perspective(900px) rotateX(3deg) rotateY(-5deg) scale(1.02); z-index: 2; transition: transform .18s cubic-bezier(.22, 1, .36, 1); }
 @media (max-width: 767px) {
   .has-js .project-card.card-enter,
   .has-js .skill-group.card-enter,
@@ -323,26 +317,17 @@ h1, h2, h3, p { margin-top: 0; }
 }
 
 
-/* Door-like 3D hover for every card */
-.has-js .project-card.card-enter:nth-child(odd),
-.has-js .skill-group.card-enter:nth-child(odd),
-.has-js .background-card.card-enter:nth-child(odd),
-.has-js .quick-facts > div.card-enter:nth-child(odd),
-.has-js .stat-item.card-enter:nth-child(odd) { transform-origin: left center; }
-.has-js .project-card.card-enter:nth-child(even),
-.has-js .skill-group.card-enter:nth-child(even),
-.has-js .background-card.card-enter:nth-child(even),
-.has-js .quick-facts > div.card-enter:nth-child(even),
-.has-js .stat-item.card-enter:nth-child(even) { transform-origin: right center; }
+/* Shared centered hover zoom and 3D tilt for every card type */
+.has-js .card-hover { position: relative; transform-origin: center; }
 @media (hover: hover) and (pointer: fine) {
-  .has-js .project-card.card-enter.revealed:nth-child(odd):hover,
-  .has-js .skill-group.card-enter.revealed:nth-child(odd):hover,
-  .has-js .background-card.card-enter.revealed:nth-child(odd):hover,
-  .has-js .quick-facts > div.card-enter.revealed:nth-child(odd):hover { transform: perspective(900px) rotateX(4deg) rotateY(-8deg) scale(1.035); z-index: 2; }
-  .has-js .project-card.card-enter.revealed:nth-child(even):hover,
-  .has-js .skill-group.card-enter.revealed:nth-child(even):hover,
-  .has-js .background-card.card-enter.revealed:nth-child(even):hover,
-  .has-js .quick-facts > div.card-enter.revealed:nth-child(even):hover { transform: perspective(900px) rotateX(4deg) rotateY(8deg) scale(1.035); z-index: 2; }
-  .has-js .stat-item.card-enter.revealed:nth-child(odd):hover { transform: perspective(900px) rotateX(3deg) rotateY(-6deg) scale(1.02); z-index: 2; }
-  .has-js .stat-item.card-enter.revealed:nth-child(even):hover { transform: perspective(900px) rotateX(3deg) rotateY(6deg) scale(1.02); z-index: 2; }
+  .has-js .card-hover.revealed:hover {
+    transform: perspective(900px) rotateX(3deg) rotateY(-5deg) scale(1.025);
+    z-index: 2;
+    border-color: var(--border-accent);
+    background-color: var(--bg-surface-hover);
+    box-shadow: 0 10px 28px rgb(0 0 0 / 18%), 0 0 22px rgb(244 114 60 / 9%);
+    transition: transform .18s cubic-bezier(.22, 1, .36, 1), box-shadow .2s ease, border-color .25s ease, background-color .25s ease;
+  }
+  .has-js .stat-item.card-hover { outline: 1px solid transparent; outline-offset: -1px; }
+  .has-js .stat-item.card-hover.revealed:hover { outline-color: var(--border-accent); }
 }
